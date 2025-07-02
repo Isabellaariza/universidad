@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<h2>Lista de entidades</h2>
+
+<a href="{% url 'agregar_entidad' %}" class="btn btn-success mb-3">Agregar entidad</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+    </tr>
+    {% for entidad in entidades %}
+    <tr>
+        <td>{{ entidad.nombre }}</td>
+        <td>{{ entidad.direccion }}</td>
+        <td>{{ entidad.telefono }}</td>
+        <td>
+            <a href="{% url 'editar_entidad' entidad.id %}" class="btn btn-warning btn-sm">Editar</a>
+            <a href="{% url 'eliminar_entidad' entidad.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

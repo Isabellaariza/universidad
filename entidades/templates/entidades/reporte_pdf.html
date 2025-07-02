@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {text-align: center;}
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td{
+            border: 1px solid #444;
+            padding: 6px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reporte de Entidades</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entidad in entidades %}
+            <tr>
+                <td>{{ entidad.nombre }}</td>
+                <td>{{ entidad.direccion }}</td>
+                <td>{{ entidad.telefono }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
